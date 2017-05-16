@@ -27,8 +27,10 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: datadir
+      annotations:
+        volume.beta.kubernetes.io/storage-class: standard
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 200Gi
+          storage: 1000Gi
