@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kafka-manager
+  namespace: kafka
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        component: kafka-manager
+    spec:
+      containers:
+      - name: kafka-manager
+        image: sheepkiller/kafka-manager:latest
+        env:
+          - name: "ZK_HOSTS"
+            value: "zookeeper:2181"
+        ports:
+        - containerPort: 9000
+          name: http
+          protocol: TCP
