@@ -18,6 +18,10 @@ spec:
           env:
             - name: ZOO_SERVERS
               value: server.1=zoo-0.zoo:2888:3888:participant server.2=zoo-1.zoo:2888:3888:participant server.3=zoo-2.zoo:2888:3888:participant
+            - name: ZOO_DATA_LOG_DIR
+              value: /data/log
+            - name: ZOO_DATA_DIR
+              value: /data
           ports:
             - containerPort: 2181
               name: client
