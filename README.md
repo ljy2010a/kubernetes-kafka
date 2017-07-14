@@ -50,7 +50,7 @@ kubectl create -f kafka/kafka-stateful.yml
 
 You might want to verify in logs that Kafka found its own DNS name(s) correctly. Look for records like:
 ```
-kubectl logs kafka-0 | grep "Registered broker"
+kubectl --namespace=kafka logs kafka-0 | grep "Registered broker"
 # INFO Registered broker 0 at path /brokers/ids/0 with addresses: PLAINTEXT -> EndPoint(kafka-0.broker.kafka.svc.cluster.local,9092,PLAINTEXT)
 ```
 
